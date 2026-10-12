@@ -1,0 +1,91 @@
+@use "../../styles/variables" as *;
+
+.masonry {
+  @include container;
+  display: flex;
+  gap: $gallery-gap;
+  align-items: flex-start;
+  padding-bottom: 32px;
+
+  @media (max-width: $bp-md) {
+    gap: $gallery-gap-mobile;
+  }
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $gallery-gap;
+
+  @media (max-width: $bp-md) {
+    gap: $gallery-gap-mobile;
+  }
+}
+
+.item {
+  position: relative;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.18);
+    box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover::before,
+  &:hover .overlay,
+  &:hover .saveButton {
+    opacity: 1;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.saveButton {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  background: linear-gradient(transparent 40%, $color-hover-overlay);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.author {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.likes {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+

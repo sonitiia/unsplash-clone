@@ -1,0 +1,268 @@
+@use "../styles/variables" as *;
+
+.wrapper {
+  @include container;
+  padding-block: 24px 48px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  color: $color-text;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  background: transparent;
+  transition: none;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $color-text;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+.media {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc($header-height + 24px);
+}
+
+.authorBlock {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.authorMeta {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  gap: 2px;
+}
+
+.copyLinkButton,
+.unsplashButton,
+.profileButton {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.04);
+  color: $color-text;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: rgba(17, 17, 17, 0.08);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+}
+
+.metaBelowImage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid $color-border;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: $color-text-muted;
+  }
+
+  strong {
+    color: $color-text;
+    font-weight: 600;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.authorName {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.username {
+  display: block;
+  color: $color-text-muted;
+  font-size: 11px;
+}
+
+.description {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.meta {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 24px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 8px;
+    // border-bottom: 1px solid $color-border-light;
+  }
+
+  dt {
+    color: $color-text-muted;
+    font-weight: 400;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+.tagsTitle {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-text-muted;
+}
+
+.tagList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  font-size: 13px;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #e8e8e8;
+  }
+}
+
+.unsplashLink {
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 10px 16px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: $color-text;
+  }
+}
+
+.status,
+.error {
+  @include container;
+  padding-block: 48px;
+}
+
+.error {
+  color: $color-error;
+}
+
+@media (max-width: $bp-lg) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .wrapper {
+    padding-block: 16px 32px;
+  }
+}

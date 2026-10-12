@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+.pagination {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-block: 24px 48px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: 10px 16px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: #f5f5f5;
+    border-color: $color-text;
+  }
+}
+
+.btnDisabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.current {
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+}
+
+@media (max-width: $bp-sm) {
+  .btn {
+    min-width: 88px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+.message,
+.status,
+.error {
+  @include container;
+  padding-block: 48px;
+  max-width: 640px;
+}
+
+.error {
+  color: $color-error;
+}
+
+.fetching {
+  @include container;
+  margin: 0;
+  padding-bottom: 8px;
+  color: $color-text-muted;
+  font-size: 13px;
+}
+
+.message code {
+  font-size: 13px;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
